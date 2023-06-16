@@ -1,0 +1,14 @@
+numpy
+scipy
+pandas
+torch
+torchvision
+pytorch_lightning
+lightning-bolts
+scikit-learn
+matplotlib
+tqdm
+rich
+torchsummary
+pytorch-metric-learning
+oct-converter
