@@ -13,3 +13,4 @@ torchsummary
 pytorch-metric-learning
 oct-converter
 scikit-image
+yapf
