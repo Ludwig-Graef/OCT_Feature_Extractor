@@ -17,8 +17,8 @@ def get_dataloader(dir_to_dataset: str, batch_size: int, num_workers: int, **kwa
     dataset = Fundus_Left_Right_Combined_Dataset(dir_to_dataset)
     # dataset = Subset(dataset, np.random.choice(range(len(dataset)), 1024))
 
-    return DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True,
-                      drop_last=False)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True,
+                      drop_last=True)
 
 
 def run_model(verbose: bool, seed: int, training_save_dir: str, model_type: str, **kwargs) -> None:

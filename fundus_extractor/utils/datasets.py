@@ -17,5 +17,20 @@ class OCT_2D_Dataset(DatasetFolder):
 
 
 class Fundus_Left_Right_Combined_Dataset(ImageFolder):
-    def __init__(self, root: str, transform: Optional[Callable]=None) -> None:
-        super().__init__(root, transform)
+    def __init__(self, root: str, loader: Callable[[str], Any], transform: Optional[Callable] = None) -> None:
+        super().__init__(root, transform, loader=loader)
+
+    def __getitem__(self, index: int) -> Tuple[Any, Any]:
+        """
+        Args:
+            index (int): Index
+
+        Returns:
+            tuple: (sample, target) where target is class_index of the target class.
+        """
+        path, target = self.samples[index]
+        sample = self.loader(path)
+        if self.transform is not None:
+            sample = self.transform(sample)
+
+        return sample, os.path.basename(path)
