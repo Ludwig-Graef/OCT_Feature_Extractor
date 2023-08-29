@@ -21,7 +21,7 @@ class ImageEncoder(nn.Module):
         if backbone_model == 'resnet18':
             model = resnet18(weights='ResNet18_Weights.DEFAULT')
         elif backbone_model == 'resnet50':
-            model = resnet50(pretrained=True)
+            model = resnet50(weights='ResNet50_Weights.IMAGENET1K_V1')
         else:
             raise NotImplementedError(f'Backbone model {backbone_model} not implemented!')
         self.features = nn.Sequential(*list(model.children())[:-1])
